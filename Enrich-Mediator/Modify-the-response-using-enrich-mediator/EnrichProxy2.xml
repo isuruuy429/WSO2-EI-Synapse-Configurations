@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><proxy xmlns="http://ws.apache.org/ns/synapse" name="EnrichProxy2" startOnLoad="true" statistics="disable" trace="disable" transports="http,https">
+    <target>
+        <outSequence>
+            <log level="full"/>
+            <enrich>
+                <source clone="true" type="inline">
+                    <ax21:newvalue xmlns:ax21="http://services.samples/xsd">testsamplevalue</ax21:newvalue>
+                </source>
+                <target xmlns:ax21="http://services.samples/xsd" xmlns:ns="http://services.samples" action="sibling" xpath="//ns:getQuoteResponse/ns:return/ax21:volume"/>
+            </enrich>
+            <log level="full"/>
+            <respond/>
+        </outSequence>
+        <endpoint>
+            <address uri="http://localhost:9000/services/SimpleStockQuoteService"/>
+        </endpoint>
+    </target>
+    <description/>
+</proxy>

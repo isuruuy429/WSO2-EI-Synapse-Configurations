@@ -1,0 +1,23 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Body>
+      <ns:getQuoteResponse xmlns:ns="http://services.samples">
+         <ns:return xsi:type="ax21:GetQuoteResponse" xmlns:ax21="http://services.samples/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <ax21:change>-2.2907353148243903</ax21:change>
+            <ax21:earnings>-8.696106301884303</ax21:earnings>
+            <ax21:high>-57.1441874679246</ax21:high>
+            <ax21:last>58.40162055158143</ax21:last>
+            <ax21:lastTradeTimestamp>Thu Dec 13 14:02:32 IST 2018</ax21:lastTradeTimestamp>
+            <ax21:low>-58.22046166555887</ax21:low>
+            <ax21:marketCap>4.049562971853946E7</ax21:marketCap>
+            <ax21:name>IBM Company</ax21:name>
+            <ax21:open>-57.85954308529621</ax21:open>
+            <ax21:peRatio>-19.21186061993837</ax21:peRatio>
+            <ax21:percentageChange>4.015883574014052</ax21:percentageChange>
+            <ax21:prevClose>-57.04187565713465</ax21:prevClose>
+            <ax21:symbol>IBM</ax21:symbol>
+            <ax21:volume>19375</ax21:volume>
+            <ax21:newvalue>testsamplevalue</ax21:newvalue>
+         </ns:return>
+      </ns:getQuoteResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

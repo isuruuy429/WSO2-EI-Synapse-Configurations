@@ -1,1 +1,3 @@
-Using this we can construct a new payload using the existing payload body as the child element. We get the <order> element as a child of <orders> element in the new payload.
+- [1. Construct a new Payload using existing Payload](Constructing-a-new-payload-using-existing-paylod)
+
+- [2. Modify the response using Enrich Mediator](Modify-the-response-using-enrich-mediator)
