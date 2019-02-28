@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Body>
+      <Company>
+         <companyInfo>
+            <name>WSO2</name>
+            <location>Colombo Sri Lanka</location>
+         </companyInfo>
+         <Employees />
+      </Company>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Body>
+      <Company>
+         <companyInfo>
+            <name>WSO2</name>
+            <location>Colombo Sri Lanka</location>
+         </companyInfo>
+         <Employees>
+            <employee>
+               <firstName>Jacque</firstName>
+               <lastName>Kallis</lastName>
+               <team>EI</team>
+            </employee>
+            <employee>
+               <firstName>Mark</firstName>
+               <lastName>Boucher</lastName>
+               <team>STL</team>
+            </employee>
+         </Employees>
+      </Company>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,27 @@
+<proxy name="EnrichProxy3" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property name="employeeInfo" scope="default">
+                <employeeInfo xmlns="">
+                    <employee>
+                        <firstName>Jacque</firstName>
+                        <lastName>Kallis</lastName>
+                        <team>EI</team>
+                    </employee>
+                    <employee>
+                        <firstName>Mark</firstName>
+                        <lastName>Boucher</lastName>
+                        <team>STL</team>
+                    </employee>
+                </employeeInfo>
+            </property>
+            <enrich>
+                <source clone="true" xpath="$ctx:employeeInfo/employee"/>
+                <target action="child" xpath="//Employees"/>
+            </enrich>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </target>
+</proxy>
