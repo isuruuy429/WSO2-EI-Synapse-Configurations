@@ -1,3 +1,5 @@
+# Modify the response using enrich mediator
+
 We can use enrich mediator to do slight modification to the request as well as the response. Through this we shall look how we can do a modification to the response using enrich mediator.
 
 Invoke the proxy with the below payload. 
