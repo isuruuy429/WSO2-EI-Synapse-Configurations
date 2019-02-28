@@ -1,0 +1,1 @@
+This repository contains useful synapse configurations of WSO2 EI. 
