@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="EnrichProxy1"
+       startOnLoad="true"
+       statistics="disable"
+       trace="disable"
+       transports="http,https">
+   <target>
+      <inSequence>
+         <enrich>
+            <source clone="true" type="body"/>
+            <target property="originalPayloadBody" type="property"/>
+         </enrich>
+         <enrich>
+            <source clone="true" type="inline">
+               <orders xmlns=""/>
+            </source>
+            <target type="body"/>
+         </enrich>
+         <enrich>
+            <source clone="true" property="originalPayloadBody" type="property"/>
+            <target action="child" xpath="//orders"/>
+         </enrich>
+         <respond/>
+      </inSequence>
+      <outSequence/>
+      <faultSequence/>
+   </target>
+   <description/>
+</proxy>

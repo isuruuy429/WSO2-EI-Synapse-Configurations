@@ -1,0 +1,1 @@
+Using this we can construct a new payload using the existing payload body as the child element. We get the <order> element as a child of <orders> element in the new payload.
