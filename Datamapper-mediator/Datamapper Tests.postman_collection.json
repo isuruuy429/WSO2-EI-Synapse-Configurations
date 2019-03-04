@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "a37334c3-acf5-455b-91b1-f41684b8667c",
+		"name": "Datamapper Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "String Operations",
+			"item": [
+				{
+					"name": "stringConcatenateTest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "571082cc-f06c-477c-b6b3-eb967c58c028",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.test(\"EmployeeNameTest\", function () {",
+									"    var employeeName1 = jsonData.Employees[0].name;",
+									"    var employeeName2 = jsonData.Employees[1].name;",
+									"    var employeeName3 = jsonData.Employees[2].name;",
+									"    ",
+									"    pm.expect(employeeName1).to.eql(\"R.J.Johnes\");",
+									"    pm.expect(employeeName2).to.eql(\"I.M.Uyanage\");",
+									"    pm.expect(employeeName3).to.eql(\"G.P.S.De Silva\");",
+									"});",
+									"",
+									"pm.test(\"EmployeeGenderTest\", function () {",
+									"    var employee1Gender = jsonData.Employees[0].gender;",
+									"    var employee2Gender = jsonData.Employees[1].gender;",
+									"    var employee3Gender = jsonData.Employees[2].gender;",
+									"    ",
+									"    pm.expect(employee1Gender).to.eql(\"M\");",
+									"    pm.expect(employee2Gender).to.eql(\"F\");",
+									"    pm.expect(employee3Gender).to.eql(\"M\");",
+									"});",
+									"",
+									"pm.test(\"ResponseContainsInitialsTest\", function () {",
+									"    var isContainsInitials = !!(jsonData.Employees[0].initials);",
+									"    pm.expect(isContainsInitials).to.eql(false);",
+									"});",
+									"",
+									"pm.test(\"ResponseContainsFirstNameTest\", function () {",
+									"    var isContainsFirstName = !!(jsonData.Employees[0].firstName);",
+									"    pm.expect(isContainsFirstName).to.eql(false);",
+									"});",
+									"",
+									"pm.test(\"ResponseContainsLastNameTest\", function () {",
+									"    var isContainsLastName = !!(jsonData.Employees[0].lastName);",
+									"    pm.expect(isContainsLastName).to.eql(false);",
+									"});",
+									"",
+									"pm.test(\"ResponseContainsAge\", function () {",
+									"    var isContainsAge = !!(jsonData.Employees[0].age);",
+									"    pm.expect(isContainsAge).to.eql(false);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Employees\":\n\t[\n\t\t{  \n\t\t   \"initials\":\"R.J.\",\n\t\t   \"firstName\":\"Leo\",\n\t\t   \"lastName\":\"Johnes\",\n\t\t   \"gender\":\"M\",\n\t\t   \"age\":\"29\"\n\t\t},\n\t\t{  \n\t\t   \"initials\":\"I.M.\",\n\t\t   \"firstName\":\"Isuru\",\n\t\t   \"lastName\":\"Uyanage\",\n\t\t   \"gender\":\"F\",\n\t\t   \"age\":\"29\"\n\t\t},\n\t\t{  \n\t\t   \"initials\":\"G.P.S.\",\n\t\t   \"firstName\":\"Supun\",\n\t\t   \"lastName\":\"De Silva\",\n\t\t   \"gender\":\"M\",\n\t\t   \"age\":\"31\"\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8280/stringOperations/concat",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"stringOperations",
+								"concat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stringSplitTest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1acf37d0-f75c-4bbe-9289-1e47f9d54600",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"pharmacyReferenceTest\", function () {",
+									"    var pharmacyReference1 = jsonData.Patients[0].pharmacyReference;",
+									"    var pharmacyReference2 = jsonData.Patients[1].pharmacyReference;",
+									"    ",
+									"    pm.expect(pharmacyReference1).to.eql(\"P12jh74\");",
+									"    pm.expect(pharmacyReference2).to.eql(\"P45Nhfik\");",
+									"});",
+									"",
+									"pm.test(\"channelReferenceTest\", function () {",
+									"    var channelReference1 = jsonData.Patients[0].channelReference;",
+									"    var channelReference2 = jsonData.Patients[1].channelReference;",
+									"    ",
+									"    pm.expect(channelReference1).to.eql(\"Mpl3452\");",
+									"    pm.expect(channelReference2).to.eql(\"M34dghOW9\");",
+									"});",
+									"",
+									"pm.test(\"patientNameTest\", function () {",
+									"    var patient1 = jsonData.Patients[0].name;",
+									"    var patient2 = jsonData.Patients[1].name;",
+									"    ",
+									"    pm.expect(patient1).to.eql(\"A.K.Jones\");",
+									"    pm.expect(patient2).to.eql(\"J.R.Serasinghe\");",
+									"});",
+									"",
+									"pm.test(\"patientAgeTest\", function () {",
+									"    var patient1Age = jsonData.Patients[0].age;",
+									"    var patient2Age = jsonData.Patients[1].age;",
+									"    ",
+									"    pm.expect(patient1Age).to.eql(\"32\");",
+									"    pm.expect(patient2Age).to.eql(\"35\");",
+									"});",
+									"",
+									"pm.test(\"IsResponseContainsReferenceTest\", function () {",
+									"    var isContainsReference1 = !!(jsonData.Patients[0].reference);",
+									"    var isContainsReference2 = !!(jsonData.Patients[1].reference);",
+									"    pm.expect(isContainsReference1).to.eql(false);",
+									"    pm.expect(isContainsReference2).to.eql(false);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Patients\":\n    [\n        {  \n           \"name\":\"A.K.Jones\",\n           \"reference\":\"P12jh74-Mpl3452\",\n           \"age\":\"32\"\n        },\n        {  \n           \"name\":\"J.R.Serasinghe\",\n           \"reference\":\"P45Nhfik-M34dghOW9\",\n           \"age\":\"35\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8280/stringOperations/split",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"stringOperations",
+								"split"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "stringCaseTest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "27e1e411-fc7c-442f-a592-b20d186da8c3",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test(\"toUpperCaseTest\", function () {",
+									"    var country1 = jsonData.Employees[0].country;",
+									"    var country2 = jsonData.Employees[1].country;",
+									"    ",
+									"    pm.expect(country1).to.eql(\"SRI LANKA\");",
+									"    pm.expect(country2).to.eql(\"FINLAND\");",
+									"});",
+									"",
+									"pm.test(\"toLowerCaseTest\", function () {",
+									"    var name1 = jsonData.Employees[0].name;",
+									"    var name2 = jsonData.Employees[1].name;",
+									"    ",
+									"    pm.expect(name1).to.eql(\"isuru uyanage\");",
+									"    pm.expect(name2).to.eql(\"supun silva\");",
+									"});",
+									"",
+									"pm.test(\"remainCaseTest\", function () {",
+									"    var gender1 = jsonData.Employees[0].gender;",
+									"    var gender2 = jsonData.Employees[1].gender;",
+									"    ",
+									"    pm.expect(gender1).to.eql(\"F\");",
+									"    pm.expect(gender2).to.eql(\"m\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Employees\":\n    [\n        {  \n           \"name\":\"Isuru Uyanage\",\n           \"country\":\"Sri Lanka\",\n           \"gender\":\"F\"\n        },\n        {  \n           \"name\":\"SUPUN silva\",\n           \"country\":\"finland\",\n           \"gender\":\"m\"\n        }\n    ]\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:8280/stringOperations/case",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"stringOperations",
+								"case"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Arithmetic Operations",
+			"item": [
+				{
+					"name": "MultiplicationTest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d4f2b5c7-db2e-4add-afcc-caa21efa4b12",
+								"exec": [
+									"pm.test(\"MultiplicationTest\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.number).to.eql(36);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"number1\":\"4\",\n\t\"number2\":\"9\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8280/ArithmeticOperations/multiply",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"ArithmeticOperations",
+								"multiply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdditionTest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e76b9db2-9389-430f-bbd3-5f1149c2eea6",
+								"exec": [
+									"pm.test(\"AdditionTest\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.number).to.eql(13);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"number1\":\"4\",\n\t\"number2\":\"9\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8280/ArithmeticOperations/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8280",
+							"path": [
+								"ArithmeticOperations",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
