@@ -28,6 +28,7 @@ URL: http://localhost:8280/stringOperations/concat
 Content-Type: application/json
 cache-control: no-cache
 Postman-Token: 8e753596-d64a-41fb-a711-c84730d3ea67
+```
 {
    "Employees":
    [
@@ -54,9 +55,11 @@ Postman-Token: 8e753596-d64a-41fb-a711-c84730d3ea67
       }
    ]
 }
-
+```
 
 Response: 
+
+```
 {
     "Employees": [
         {
@@ -73,8 +76,10 @@ Response:
         }
     ]
 }
+```
 
 6. From this API resouce we send a json payload of Employees which contains the details of Employee initials, first name, last name, gender and age. The API will output Employee name by concatenating initials and last name with Employee gender. (This logic is defined inside API Datamapper diagram)
+
 ![Concatenate Strings using datamapper mediator](images/dm_concat.png)
 
 We can write set of test cases for above test. 
