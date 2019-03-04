@@ -8,13 +8,19 @@ In this example we focus on automating the REST Apis testing using Postman and N
 - API for String Operations
 - API for Arithmetic Operations
 
-2. Launch Postman. 
-3. Create new Workspace. 
-4. Create new Collection. 
+2. Get wso2ei-6.4.0 distribution and start the server. 
+```
+./integrator.sh
+```
 
-5. In that Collection, create two folders called String Operations and Arithmetic Operations. All the requests/ tests related to String operations API will be placed in String Operations folder and all the tests/requests related to Arithmetic Operations API will be resulted in Arithmetic Operations folder. 
+## Writing tests in Postman
+1. Launch Postman. 
+2. Create new Workspace. 
+3. Create new Collection. 
 
-6. Lets take the API StringOperations. In this API, we have three API resources which are /concat, /split, and /case. Let's take /concat resource. 
+4. In that Collection, create two folders called String Operations and Arithmetic Operations. All the requests/ tests related to String operations API will be placed in String Operations folder and all the tests/requests related to Arithmetic Operations API will be resulted in Arithmetic Operations folder. 
+
+5. Lets take the API StringOperations. In this API, we have three API resources which are /concat, /split, and /case. Let's take /concat resource. 
 
 POST /stringOperations/concat HTTP/1.1
 Host: localhost:8280
@@ -68,8 +74,8 @@ Response:
     ]
 }
 
-From this API resouce we send a json payload of Employees which contains the details of Employee initials, first name, last name, gender and age. The API will output Employee name by concatenating initials and last name with Employee gender. (This logic is defined inside API Datamapper diagram)
-(images/dm_concat.png)
+6. From this API resouce we send a json payload of Employees which contains the details of Employee initials, first name, last name, gender and age. The API will output Employee name by concatenating initials and last name with Employee gender. (This logic is defined inside API Datamapper diagram)
+![Concatenate Strings using datamapper mediator](images/dm_concat.png)
 
 We can write set of test cases for above test. 
 * Verify if Employee name is returned as concatenating initials and last name.  
@@ -79,7 +85,7 @@ We can write set of test cases for above test.
 * Verify if response contains a key as lastname.
 * Verify if response contains a key as age.
 
-We can write above test cases in the Request itself in the Tests tab. The language will be javascript. 
+7. We can write above test cases in the Request itself in the Tests tab. The language will be javascript. 
 
 Please find the test methods below. 
 ```
@@ -134,7 +140,7 @@ pm.test("ResponseContainsAge", function () {
 ```
 
 7. Likewise you can write tests to the other API resources as well. All these tests can run as a Collection. 
-(images/testrun.png)
+![Running the test collection in Postman](images/testrun.png)
 
 8. Further these tests can be exported. You can find the exported test script in Datamapper Tests.postman_collection.json file. 
 
@@ -197,7 +203,7 @@ Datamapper Tests
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-Running the test cases in Newman
+## Running the test cases in Newman
 1. Installing Newman
 ```
 npm install -g newman
