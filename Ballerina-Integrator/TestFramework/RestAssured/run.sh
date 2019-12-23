@@ -14,14 +14,6 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-
-
-# cd /Users/IsuruUyanage/Desktop/RnD/Q4/BI/RestAssured/suite1/FTPOperations
-# ballerina build -a
-# java -jar /Users/IsuruUyanage/Desktop/RnD/Q4/BI/RestAssured/suite1/FTPOperations/target/bin/basics.jar > server.log .&
-# cd /Users/IsuruUyanage/eclipse-workspace/FTPOperationTests
-# mvn clean install
-
 declare -a dirs
 i=1
 for d in */
@@ -42,17 +34,3 @@ do
     mvn clean install
     kill $(lsof -t -i:9090)
 done
-
-
-# testSuitesArr=(`ls`)
-# for i in ${testSuitesArr[@]}; 
-# do 
-#   cd $i
-#   echo -e "$i"
-#   cd ballerinaProject
-#   ballerina build -a
-#   echo -e "building $i \n"
-#   java -jar target/bin/*.jar
-#   cd ../..
-#   mvn clean install
-# done;
